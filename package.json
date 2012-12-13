@@ -1,5 +1,5 @@
 {
-  "name": "application-name",
+  "name": "news-hub",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -8,6 +8,8 @@
   "dependencies": {
     "express": "3.0.4",
     "jade": "*",
-    "less-middleware": "*"
+    "less-middleware": "*",
+    "coffee-script": "~1.4.0",
+    "connect-less": "~0.3.1"
   }
 }
