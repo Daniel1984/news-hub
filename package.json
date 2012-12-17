@@ -12,6 +12,8 @@
     "coffee-script": "~1.4.0",
     "connect-less": "~0.3.1",
     "request": "~2.12.0",
-    "cheerio": "~0.10.3"
+    "cheerio": "~0.10.3",
+    "async": "~0.1.22",
+    "underscore": "~1.4.3"
   }
 }
