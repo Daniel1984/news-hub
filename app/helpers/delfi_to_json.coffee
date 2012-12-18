@@ -4,9 +4,7 @@ cheerio = require 'cheerio'
 module.exports.parseBody = (cb) ->
   request uri: 'http://www.delfi.lt',
     (error, response, body) ->
-      delNews = {
-        del_articles: []
-      }
+      delNews = []
       $ = cheerio.load(body)
       mostRecentFirst = $('.delfi-category-headlines-big').first()
       mostRecentSecond = $(".delfi-category-headlines").first()
@@ -14,8 +12,8 @@ module.exports.parseBody = (cb) ->
       $ = cheerio.load(articles)
       
       $('.delfi-item').each (i, item) ->
-        title = $(this).find('a').text()
-        titleLink = $(this).find('a').attr('href')
-        imageLink = $(this).find('img').attr('src')
-        delNews.del_articles[i] = title: title, link: titleLink, image: imageLink
+        delTitle = $(this).find('a').text()
+        delUrl = $(this).find('a').attr('href')
+        delImg = $(this).find('img').attr('src')
+        delNews.push title: delTitle, url: delUrl, img: delImg
       cb(delNews)

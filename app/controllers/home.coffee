@@ -8,25 +8,16 @@ min15ToJson = require "#{appPath}/helpers/min15_to_json"
 module.exports.index = (req, res, next) ->
   async.waterfall([
     (callback) ->
-      delfiToJson.parseBody (articles) ->
-        callback(null, articles)
+      delfiToJson.parseBody (delArticles) ->
+        callback(null, delArticles)
     ,
     (delArticles, callback) ->
-      min15ToJson.parseBody (articles) ->
+      articles = {
+        del: delArticles
+      }
+      min15ToJson.parseBody (min15Articles) ->
+        articles.min15 = min15Articles
         callback(null, articles)
-  ], (err, result) ->
-    # res.writeHeader(200, {"Content-Type": "text/html"})
-    # res.write(result.toString())
-    # res.end()
-    
-    # reqt = http.request({method: "POST", host: "http://json.fastfrag.org"})
-    # reqt.end(querystring.encode(asas: result)
-    # reqt.on "response", (res) ->
-    #   console.log res
-    
-    # res.render 'index',
-    #   title: 'News Hub'
-    #   delBody: JSON.stringify(result)
-      
+  ], (err, result) ->      
     res.json(result, 200)
   )
