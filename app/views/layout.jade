@@ -6,7 +6,8 @@ html
     meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
     title= title
     link(rel='stylesheet', href='/stylesheets/main.css')
-    script
-      var del_body = !{JSON.stringify(delBody)}
+    block scripts
+      script(data-main="main", src="javascripts/require.js")
+    
   body
     block content
