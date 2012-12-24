@@ -1,19 +1,20 @@
 define [
   'backbone'
   'text!templates/navbar/item_view.html'
-  ], (Template, Backbone) ->
-    
-    class ItemView extends Backbone.View
-      tagName: 'li'
-      events:
-        'click': 'displayActiveView'
-      
+], (Backbone, Template) ->
+
+  class NavItemView extends Backbone.View
+    tagName: 'li'
+
+    events:
+      'click': 'displayActiveView'
+
     initialize: (options) ->
-      @template = _.template(Template)
+      @template = _.template(Template, @model.toJSON())
       @model.on 'change:viewActive', @updateActiveView
-      
+
     render: =>
-      @$el.html(@template(@model.toJSON()))
+      @$el.html(@template)
       @updateActiveView()
       @
 

@@ -1,7 +1,8 @@
 define [
+  'views/news/index_view'
   'models/navbar_item'
   'backbone'
-  ], (NavbarItem, Backbone) ->
+  ], (NewsView, NavbarItem, Backbone) ->
     
     class NavbarItems extends Backbone.Collection
       model: NavbarItem
@@ -12,9 +13,6 @@ define [
             item.set(viewActive: false)
 
       loadItems: =>
-        console.log 'loading items'
-        # @reset([
-        #   {view: PostView, viewActive: true, title: 'Posts'}
-        #   {view: VideoView, viewActive: false, title: 'Videos'}
-        #   {view: PicturesView, viewActive: false, title: 'Pictures'}
-        # ])
+        @reset([
+          {view: NewsView, viewActive: true, title: 'Naujienos'}
+        ])

@@ -2,16 +2,18 @@ appPath = "#{process.cwd()}/app"
 async = require 'async'
 _ = require 'underscore'
 
-delfiToJson = require "#{appPath}/helpers/delfi_to_json"
-min15ToJson = require "#{appPath}/helpers/min15_to_json"
-alfaToJson = require "#{appPath}/helpers/alfa_to_json"
-lRytasToJson = require "#{appPath}/helpers/lRytas_to_json"
-cosmoToJson = require "#{appPath}/helpers/cosmo_to_json"
-braskesToJson = require "#{appPath}/helpers/braskes_to_json"
+# delfiToJson = require "#{appPath}/helpers/delfi_to_json"
+# min15ToJson = require "#{appPath}/helpers/min15_to_json"
+# alfaToJson = require "#{appPath}/helpers/alfa_to_json"
+# lRytasToJson = require "#{appPath}/helpers/lRytas_to_json"
+# cosmoToJson = require "#{appPath}/helpers/cosmo_to_json"
+# braskesToJson = require "#{appPath}/helpers/braskes_to_json"
 
 module.exports.index = (req, res, next) ->
-  articles = {}
-  async.waterfall([
+  res.render 'index',
+    title: "News Hub"
+  # articles = {}
+  # async.waterfall([
     # (callback) ->
     #   delfiToJson.parseBody (delArticles) ->
     #     articles.del = delArticles
@@ -37,13 +39,11 @@ module.exports.index = (req, res, next) ->
     #     articles.cosmo = cosmoArticles
     #     callback(null)
     # ,
-    (callback) ->
-      braskesToJson.parseBody (braskesArticles) ->
-        articles.braskes = braskesArticles
-        callback(null, articles)
-  ], (err, result) ->      
+  #   (callback) ->
+  #     braskesToJson.parseBody (braskesArticles) ->
+  #       articles.braskes = braskesArticles
+  #       callback(null, articles)
+  # ], (err, result) ->      
     # res.json(result, 200)
-    res.render 'index',
-      title: "shit"
-      articles: result
-  )
+
+  # )
