@@ -16,6 +16,6 @@ module.exports.parseBody = (cb) ->
       $('.block1a').find('.top-naujienos-1').each (i, item) ->
         lRytasTitle = S($(this).find('h2').text()).collapseWhitespace().s
         lRytasUrl = "http://www.lrytas.lt#{$(this).find('h2').find('a').attr('href')}"
-        lRytasImg = $(this).find('a').find('img').attr('src')
+        lRytasImg = $(this).find('.topic-img-6').attr('src')
         lRytasNews.push img: lRytasImg, title: lRytasTitle, url: lRytasUrl
       cb lRytasNews
