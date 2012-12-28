@@ -26,7 +26,6 @@ module.exports.getArticle = (url, cb) ->
       scraped.find('.block6').remove()
       scraped.find('.comm-adv').remove()
       scraped.find('noscript').remove()
-      scraped.find('img').remove()
       article = scraped.html().replace('h1', 'h3')
       lrytasArticle.push article: article
       cb(lrytasArticle)
