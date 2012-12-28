@@ -13,6 +13,7 @@ app.configure ->
   app.use express.bodyParser()
   app.use express.methodOverride()
   app.use express.static("#{__dirname}/public", {maxAge: 5000})
+  app.use express.static("#{__dirname}/tmp/cache/less", {maxAge: 5000})
   app.use(require('connect-less')(
     src: "#{__dirname}/app/assets"
     dst: "#{__dirname}/tmp/cache/less"
