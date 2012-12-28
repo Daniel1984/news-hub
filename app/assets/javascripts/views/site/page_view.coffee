@@ -21,7 +21,6 @@ define [
         @
 
       navbar: =>
-        @navbarView?.leave()
         @navbarView = new Navbar collection: @navItems, user: @user
         @$('.navbar').append(@navbarView.render().el)
 
@@ -30,7 +29,7 @@ define [
 
       displayActiveView: (model) =>
         if model.get 'viewActive'
-          @activeView?.leave()
+          @activeView?.remove()
           View = model.get 'view'
           @activeView = new View model: model
           @$('.content').append(@activeView.render().el)

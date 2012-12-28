@@ -5,6 +5,7 @@ require.config(
     backbone: 'lib/backbone'
     jquery: 'lib/jquery'
     bootstrap: 'lib/bootstrap'
+    spinner: 'lib/spin'
   shim:
     bootstrap:
       deps: ['jquery']
@@ -13,6 +14,8 @@ require.config(
     backbone:
       deps: ['underscore','jquery']
       exports: "Backbone"
+    spin:
+      exports: "Spinner"
 )
 require([
   'app'

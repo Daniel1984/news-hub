@@ -1,9 +1,9 @@
 define [
-  'views/news/item_view'
+  'views/fashion/item_view'
   'backbone'
   ], (ItemView, Backbone) ->
     
-    class NewsListView extends Backbone.View
+    class FashionListView extends Backbone.View
         
       initialize: (options) ->
         

@@ -6,7 +6,9 @@ module.exports.parseBody = (cb) ->
   request uri: 'http://www.lrytas.lt/',
     (err, res, body) ->
       $ = cheerio.load body
+      $('.nw').remove()
       lRytasNews = []
+      lRytasNews.push site: 'lrytas', address: 'http://www.lrytas.lt/'
       lRytasImg = $('.top-naujiena-left').find('img').attr('src')
       lRytasTitle = S($('.top-naujiena-right').find('h1').text()).collapseWhitespace().s
       lRytasUrl = "http://www.lrytas.lt/#{$('.top-naujiena-left').find('a').attr('href')}"

@@ -5,6 +5,7 @@ module.exports.parseBody = (cb) ->
   request uri: 'http://www.5braskes.lt/',
     (err, res, body) ->
       braskesNews = []
+      braskesNews.push site: '5braskes', address: 'http://www.5braskes.lt/'
       $ = cheerio.load(body)
       scrapedBraskes = $('.viewport')
       $ = cheerio.load(scrapedBraskes)

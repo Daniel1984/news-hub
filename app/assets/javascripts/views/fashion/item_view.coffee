@@ -4,7 +4,7 @@ define [
   'text!templates/news/item_view.html'
   ], (Modal, Backbone, Template) ->
     
-    class NevsItemView extends Backbone.View
+    class FashionItemView extends Backbone.View
       className: 'span3'
       events:
         'click .article-address': "getArticleBody"

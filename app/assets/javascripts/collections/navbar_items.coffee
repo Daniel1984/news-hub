@@ -1,8 +1,9 @@
 define [
   'views/news/index_view'
+  'views/fashion/index_view'
   'models/navbar_item'
   'backbone'
-  ], (NewsView, NavbarItem, Backbone) ->
+  ], (NewsView, FashionView, NavbarItem, Backbone) ->
     
     class NavbarItems extends Backbone.Collection
       model: NavbarItem
@@ -15,4 +16,5 @@ define [
       loadItems: =>
         @reset([
           {view: NewsView, viewActive: true, title: 'Naujienos'}
+          {view: FashionView, viewActive: false, title: 'Moterims'}
         ])

@@ -1,10 +1,10 @@
 appPath = "#{process.cwd()}/app"
 async = require 'async'
 
-delfiToJson = require "#{appPath}/models/delfi_to_json"
-min15ToJson = require "#{appPath}/models/min15_to_json"
-alfaToJson = require "#{appPath}/models/alfa_to_json"
-lRytasToJson = require "#{appPath}/models/lRytas_to_json"
+delfiToJson = require "#{appPath}/helpers/delfi"
+min15ToJson = require "#{appPath}/helpers/min15"
+alfaToJson = require "#{appPath}/helpers/alfa"
+lRytasToJson = require "#{appPath}/helpers/lRytas"
 
 module.exports.index = (req, res, next) ->
   async.parallel([

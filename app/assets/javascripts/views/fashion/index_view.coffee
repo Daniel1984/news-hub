@@ -1,17 +1,17 @@
 define [
-  'views/news/list_view'
-  'collections/news'
+  'views/fashion/list_view'
+  'collections/fashions'
   'backbone'
   'views/helper/spinner_view'
-  ], (NewsListView, News, Backbone, Spinner) ->
+  ], (FashionListView, Fashions, Backbone, Spinner) ->
     
     class NewsView extends Backbone.View
       className: "row"
       
       initialize: (options) ->
-        @news = new News()
-        @news.on 'reset', @renderNews
-        @news.fetch()
+        @fashions = new Fashions()
+        @fashions.on 'reset', @renderNews
+        @fashions.fetch()
         
       render: ->
         @$el.html()
@@ -24,6 +24,5 @@ define [
         
       renderNews: =>
         @spinner.remove()
-        @listView = new NewsListView collection: @news
+        @listView = new FashionListView collection: @fashions
         @$el.append(@listView.render().el)
-        

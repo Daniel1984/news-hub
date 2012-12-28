@@ -13,8 +13,6 @@ app.configure ->
   app.use express.bodyParser()
   app.use express.methodOverride()
   app.use express.static("#{__dirname}/public", {maxAge: 5000})
-  
-  #app.use express.static("#{__dirname}/www-built") #TODO just for dev at the moment needs to be removed
   app.use(require('connect-less')(
     src: "#{__dirname}/app/assets"
     dst: "#{__dirname}/tmp/cache/less"
@@ -40,7 +38,6 @@ app.configure 'development', ->
       next()
   )
   app.use(express.static("#{__dirname}/app/assets/javascripts"))
-  # app.use(express.static("#{__dirname}/public/javascripts/app"))
   
 require("#{appPath}/router/routes")(app)
 
