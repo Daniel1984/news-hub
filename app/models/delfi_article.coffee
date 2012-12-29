@@ -6,17 +6,24 @@ module.exports.getArticle = (url, cb) ->
     (err, req, body) ->
       delfiArticle = []
       $ = cheerio.load(body)
-      scraped = $('.delfi-article-wrapper')
+      if $('.delfi-article-wrapper').length > 0
+        scraped = $('.delfi-article-wrapper')
+      else
+        scraped = $('#grynas-content-block')
       scraped.find('script').remove()
       scraped.find('.delfi-article-banner').remove()
       scraped.find('.delfi-article-title').find('a').remove()
       scraped.find('.img-article-source').remove()
+      scraped.find('.delfi-article-info').remove()
       scraped.find('img').addClass('centered-image')
-      if scraped.length > 0
-        title = scraped.find('.delfi-article-title').html()
-        body = scraped.find('.delfi-article-body').html()
-        article = title + body
-      else
-        console.log "NOOOOO"
-      delfiArticle.push article: article
+      scraped.find('.grynas-breadcrumb').remove()
+      scraped.find('.grynas-article-controls').remove()
+      scraped.find('.grynas-resize').remove()
+      scraped.find('.float-right').remove()
+      scraped.find('#shareit-container').remove()
+      scraped.find('.block-delfi-susije').remove()
+      scraped.find('#fbc').remove()
+      scraped.find('#comment-dark-skin-wrapper').remove()
+      scraped.find('#headlines').remove()
+      delfiArticle.push article: scraped.html()
       cb(delfiArticle)
