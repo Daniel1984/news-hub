@@ -1,26 +1,26 @@
-require.config(
+require.config
   paths: 
-    text: 'lib/require/text'
+    jquery: 'lib/jquery'
     underscore: 'lib/underscore'
     backbone: 'lib/backbone'
-    jquery: 'lib/jquery'
     bootstrap: 'lib/bootstrap'
-    spinner: 'lib/spin'
+    text: 'lib/require/text'
+    domready: 'lib/require/domready'
+    spinner: 'lib/spiner'
   shim:
-    bootstrap:
-      deps: ['jquery']
     underscore:
-      exports: "_"
+      exports: '_'
     backbone:
-      deps: ['underscore','jquery']
+      deps: ['jquery', 'underscore']
       exports: "Backbone"
     spin:
       exports: "Spinner"
-)
-require([
+    bootstrap:
+      deps: ['jquery']
+
+require [
+  'domready'
   'app'
-], (App) ->
-  App.init()
-)
-
-
+], (domReady, App) ->
+  domReady () ->
+    App.init()

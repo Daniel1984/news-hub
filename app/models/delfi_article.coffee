@@ -25,5 +25,6 @@ module.exports.getArticle = (url, cb) ->
       scraped.find('#fbc').remove()
       scraped.find('#comment-dark-skin-wrapper').remove()
       scraped.find('#headlines').remove()
+      scraped.find('.image-article').remove()
       delfiArticle.push article: scraped.html()
       cb(delfiArticle)

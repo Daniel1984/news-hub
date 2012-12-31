@@ -20,3 +20,8 @@ tmp/cache/less/stylesheets/**/**/*.css
 tmp/cache/assets/*
 tmp/sass-cache/*
 .bundle/
+public/javascripts/app.js
+public/javascripts/main.js
+public/javascripts/models/*
+public/javascripts/views/*
+public/javascripts/collections/*

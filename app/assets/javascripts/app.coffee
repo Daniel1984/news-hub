@@ -1,12 +1,11 @@
 define [
   'jquery'
+  'underscore'
   'backbone'
   'views/site/page_view'
   'bootstrap'
-  ], ($, Backbone, Page) ->
+  ], ($, _, Backbone, Page) ->
     init: ->
-      $( ->
-          page = new Page
-          $('body').append(page.render().el)
-        )
+      page = new Page
+      $('body').append(page.render().el)
 

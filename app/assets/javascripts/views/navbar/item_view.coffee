@@ -1,7 +1,7 @@
 define [
   'backbone'
   'text!templates/navbar/item_view.html'
-], (Backbone, Template) ->
+], (Backbone,Template) ->
 
   class NavItemView extends Backbone.View
     tagName: 'li'

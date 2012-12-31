@@ -1,7 +1,8 @@
 define [
   'views/helper/spinner_view'
+  'backbone'
   'text!templates/helper/modal_view.html'
-], (Spinner, Template) ->
+], (Spinner, Backbone, Template) ->
 
   class ModalView extends Backbone.View
     className: 'modal hide fade'
