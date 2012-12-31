@@ -9,7 +9,8 @@
         domready: "../../app/assets/javascripts/lib/require/domready",
         spinner: "../../app/assets/javascripts/lib/spiner",
         bootstrap: "../../app/assets/javascripts/lib/bootstrap",
-        templates: "../../app/assets/javascripts/templates"
+        templates: "../../app/assets/javascripts/templates",
+        requireLib: "require"
     },
     shim: {
       underscore: {
@@ -26,7 +27,9 @@
         deps: ['jquery']
       }
     },
+    include: "requireLib",
     name: "main",
     out: "public/javascripts/main-built.js",
-    optimize: "none"
+    preserveLicenseComments: false,
+    optimize: "uglify"
 })
