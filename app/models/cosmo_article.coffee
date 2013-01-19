@@ -13,6 +13,6 @@ module.exports.getArticle = (url, cb) ->
       scraped.find('script').remove()
       scraped.find('.shareit-container').remove()
       scraped.find('img').addClass('centered-image')
-      article = scraped.html().replace('h1', 'h3')
+      article = scraped.html()?.replace('h1', 'h3')
       cosmoArticle.push article: article
       cb(cosmoArticle)
